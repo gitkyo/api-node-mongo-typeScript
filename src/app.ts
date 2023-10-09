@@ -14,6 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//import des routes
+import routes from './routes';
+routes(app);
+
 //démarrage 
 app.listen(port, async () => {
     
