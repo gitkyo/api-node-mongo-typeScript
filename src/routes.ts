@@ -1,5 +1,8 @@
 // Express, Request, Response sont des types de données
 import { Express, Request, Response } from 'express';
+import { createUserHandler } from './controller/user.controller';
+import validateRequest from './middleware/validateRequest';
+import { createUserSchema } from './schema/user.schema';
 
 //ici export default permet d'exporter la fonction sans devoir l'importer avec des accolades
 export default function (app: Express) {
@@ -10,6 +13,7 @@ export default function (app: Express) {
 
     //Register user
     //POST api/user
+    app.post('/api/user', validateRequest(createUserSchema), createUserHandler);
 
     //Login 
     //POST api/sessions

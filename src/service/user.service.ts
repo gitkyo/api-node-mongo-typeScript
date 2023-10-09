@@ -5,7 +5,7 @@ export async function createUser(input: any) {
         const user = await User.create(input);
     
         return user;
-    } catch (error) {
+    } catch (error:any) {
         throw new Error(error);
     }
 }
